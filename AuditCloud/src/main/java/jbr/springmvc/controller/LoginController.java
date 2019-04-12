@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import jbr.springmvc.model.Login;
 import jbr.springmvc.model.User;
@@ -17,6 +18,7 @@ import jbr.springmvc.service.UserService;
  * @date 11 Apr 2019
  */
 @Controller
+@SessionAttributes("login")
 public class LoginController {
 	@Autowired
 	UserService userService;
@@ -37,6 +39,7 @@ public class LoginController {
 		if (null != user) {
 			mav = new ModelAndView("welcome");
 			mav.addObject("firstname", user.getFirstname());
+			mav.addObject("email", user.getEmail());
 		} else {
 			mav = new ModelAndView("login");
 			mav.addObject("message", "Username or Password is wrong!!");

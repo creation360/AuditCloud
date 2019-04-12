@@ -9,10 +9,15 @@
         <table>
             <tr>
                 <td>Welcome ${firstname}</td>
+                <td> ${email}</td>
             </tr>
             <tr>
             </tr>
             <tr>
+            </tr>
+             <tr>
+                <td><a href="<%=request.getContextPath()%>/user">View your profile</a>
+                </td>
             </tr>
             <tr>
                 <td><a href="home.jsp">Home</a>
