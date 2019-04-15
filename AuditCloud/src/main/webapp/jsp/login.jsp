@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
         <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -5,17 +6,18 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
             <title>Login</title>
+            <style>
+			body {background-color: powderblue;}
+			h1   {color: blue;}
+			p    {color: red;}
+			</style>
         </head>
         <body>
             <form:form id="loginForm" modelAttribute="login" action="loginProcess" method="post">
                 <table align="center">
                     <tr>
-                        <td>
-                            <form:label path="email">Email: </form:label>
-                        </td>
-                        <td>
-                            <form:input path="email" name="email" id="email" />
-                        </td>
+                        <td><form:label path="email">Email Address: </form:label></td>
+						<td><form:input path="email" name="email" id="email" />
                     </tr>
                     <tr>
                         <td>
