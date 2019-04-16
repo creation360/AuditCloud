@@ -3,7 +3,7 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-	<context:component-scan base-package="jbr.springmvc" />
+	<context:component-scan base-package="com.c360.auditcloud" />
 	<context:annotation-config />
 	<bean id="userDao" class="com.c360.auditcloud.dao.UserDaoImpl" />
 	<bean id="userService" class="com.c360.auditcloud.service.UserServiceImpl" />

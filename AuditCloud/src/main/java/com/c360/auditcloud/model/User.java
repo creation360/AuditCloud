@@ -16,8 +16,19 @@ public class User {
 	private String phone;
 	private String designation;
 	private String created_on;
-	
-	
+	private int role_id;
+	/**
+	 * @return the role_id
+	 */
+	public int getRole_id() {
+		return role_id;
+	}
+	/**
+	 * @param role_id the role_id to set
+	 */
+	public void setRole_id(int role_id) {
+		this.role_id = role_id;
+	}	
 	public String getEmail() {
 		return email;
 	}
@@ -79,6 +90,4 @@ public class User {
 	public void setPassword_hash(String password_hash) {
 		this.password_hash = password_hash;
 	}
-
-
 }

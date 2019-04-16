@@ -18,5 +18,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
         <property name="suffix" value=".jsp" />
     </bean>
     <mvc:resources mapping="/webjars/**" location="/webjars/" />
+    <mvc:resources mapping="/images/**" location="/images/" />    
+    <mvc:resources mapping="/resources/**" location="/resources/" />
     <mvc:annotation-driven />
 </beans>

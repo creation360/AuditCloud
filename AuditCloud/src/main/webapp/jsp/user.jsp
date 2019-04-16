@@ -1,27 +1,45 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+	pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Audit Cloud</title>
+<meta charset="utf-8">
+ <meta http-equiv="refresh" content="text/html; charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" type="image/png" href="/images/favicon.ico" />
+<link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="webjars/bootstrap/4.3.1/css/bootstrap.css" rel="stylesheet">
+<script src="webjars/jquery/1.9.1/jquery.min.js"></script>
+<script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-
- <body>
-        <table>
-            <tr>
-                <td>Welcome you are logged in as ${login.email}</td>
-            </tr>
-            <tr>
-            </tr>
-            <tr>
-            </tr>
-            <tr>
-                <td><a href="home.jsp">Home</a>
-                </td>
-            </tr>
-        </table>
-    </body>
-
-
+<body>
+	<nav class="navbar navbar-dark bg-dark">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Audit Cloud</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<table>
+			<tr>
+				<td>Welcome you are logged in as ${login.email}</td>
+			</tr>
+			<tr>
+			</tr>
+			<tr>
+			</tr>
+			<tr>
+				<td><a href="home.jsp">Home</a></td>
+			</tr>
+			<tr>
+				<td><a href="<%=request.getContextPath()%>/logout">Logout</a></td>
+			</tr>
+		</table>
+	</div>
+</body>
 </html>
