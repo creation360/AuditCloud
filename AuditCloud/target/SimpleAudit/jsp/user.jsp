@@ -20,6 +20,10 @@
                 <td><a href="home.jsp">Home</a>
                 </td>
             </tr>
+             <tr>
+                <td><a href="<%=request.getContextPath()%>/logout">Logout</a>
+                </td>
+            </tr>
         </table>
     </body>
 

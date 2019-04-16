@@ -2,6 +2,7 @@ package com.c360.auditcloud.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -62,10 +63,16 @@ public class RegistrationController  {
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public ModelAndView showRegister(HttpServletRequest request,
-			HttpServletResponse response) {
+			HttpServletResponse response, HttpSession session) {
+		/* Check session for authentication */
+		if(null == session.getAttribute("login")) {
 		ModelAndView mav = new ModelAndView("register");
 		mav.addObject("user", new User());
 		return mav;
+		}else {
+			ModelAndView mav = new ModelAndView("welcome");
+			return mav;
+		}
 	}
 
 	@RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
@@ -82,8 +89,8 @@ public class RegistrationController  {
 		/*Ends*/
 		Date created_on = new Date();
 		user.setCreated_on(created_on.toString());
-		System.out.println(user.getPassword_hash());
-		System.out.println(user.getReset_hash());
+		//System.out.println(user.getPassword_hash());
+		//System.out.println(user.getReset_hash());
 		userService.register(user);
 		return new ModelAndView("welcome", "firstname", user.getFirstname());
 	}

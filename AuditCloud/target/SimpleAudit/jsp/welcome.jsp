@@ -19,6 +19,10 @@
                 <td><a href="<%=request.getContextPath()%>/user">View your profile</a>
                 </td>
             </tr>
+             <tr>
+                <td><a href="<%=request.getContextPath()%>/logout">Logout</a>
+                </td>
+            </tr>
             <tr>
                 <td><a href="home.jsp">Home</a>
                 </td>

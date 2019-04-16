@@ -48,14 +48,14 @@ public class UserDaoImpl implements UserDao {
 		String sql = "select * from users where email='"+ login.getEmail()+"'";
 		
 		List<User> users = jdbcTemplate.query(sql, new UserMapper());
-		System.out.println("db stored reset hash code " + users.get(0).getReset_hash() + " login pass " + login.getPassword() + " reset hsah salt in bytes "+ users.get(0).getReset_hash().getBytes());
-		System.out.println("db stored reset hash code " + users.get(0).getReset_hash() + " login pass " + login.getPassword() + " reset hsah salt in bytes "+ Base64.getDecoder().decode(users.get(0).getReset_hash()));
+		//System.out.println("db stored reset hash code " + users.get(0).getReset_hash() + " login pass " + login.getPassword() + " reset hsah salt in bytes "+ users.get(0).getReset_hash().getBytes());
+		//System.out.println("db stored reset hash code " + users.get(0).getReset_hash() + " login pass " + login.getPassword() + " reset hsah salt in bytes "+ Base64.getDecoder().decode(users.get(0).getReset_hash()));
 
 		
 		// get user input login password and salt reset_hash from Database to create the same hashed password
 		String encryptedpassword = get_SHA_512_SecurePassword(login.getPassword(), Base64.getDecoder().decode(users.get(0).getReset_hash())); 
 		//compare password
-		System.out.println("Database stored password"  + users.get(0).getPassword_hash().toString() + " user input password hashed for comparison" + encryptedpassword);
+		//System.out.println("Database stored password"  + users.get(0).getPassword_hash().toString() + " user input password hashed for comparison" + encryptedpassword);
 		return encryptedpassword.equals( users.get(0).getPassword_hash().toString())? users.get(0) : null;
 		
 		//return users.size() > 0 ? users.get(0) : null;
