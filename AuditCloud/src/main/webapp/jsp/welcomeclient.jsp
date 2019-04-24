@@ -1,14 +1,13 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <title>Audit Cloud</title>
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta http-equiv="Expires" content="Sat, 11 Feb 2013 16:00:00 GMT">
 <link rel="shortcut icon" type="image/png" href="/images/favicon.ico" />
 <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -17,21 +16,48 @@
 <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-default bg-dark">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Audit Cloud</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">DASHBOARD</a></li>
-				<li><a href="#">RESULTS</a></li>
-				<li><a href="#">YTD LEADERBOARDS</a></li>
-				<li><a href="#">COMPARE RESULTS</a></li>
-				<li><a href="#">SURVEYS</a></li>
-				<li><a href="#">MY ACCOUNT</a></li>
-			</ul>
+	<%
+		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+		response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+		if (session.getAttribute("login") == null) {
+			String url = request.getContextPath() + "/login";
+			response.sendRedirect(url);
+		}
+	%>
+	<nav class="navbar navbar-dark bg-dark">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a href="#" class="navbar-left"><img
+				style="max-width: 250px; margin-top: -7px;"
+				src="resources/images/ac-logo-x2-v2.png" /></a> &emsp; &emsp; &emsp;
+			&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+			&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+			&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+			&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+			&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+			&emsp; &emsp;<a class="navbar-brand"
+				href="<%=request.getContextPath()%>/logout">Logout</a>
 		</div>
+	</div>
 	</nav>
+	<nav class="navbar navbar-dark bg-primary">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			&emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;
+			&emsp; &emsp; &emsp; &emsp; <a class="navbar-brand" href="#">DASHBOARD</a>
+			<a class="navbar-brand" href="#">RESULTS</a> <a class="navbar-brand"
+				href="#">YTD LEADERBOARDS</a> <a class="navbar-brand" href="#">COMPARE
+				RESULTS</a> <a class="navbar-brand" href="#">SURVEYS</a> <a
+				class="navbar-brand" href="#">MY ACCOUNT</a>
+		</div>
+	</div>
+	</nav>
+	<div class="container container-table">
+		<div class="row vertical-center-row">
+			<div class="text-center col-md-4 col-md-offset-4"
+				style="background: pink">Welcome ${firstname} ${email}</div>
+		</div>
+	</div>
 	<div class="container">
 		<table class="table">
 			<tr>
@@ -45,9 +71,6 @@
 			<tr>
 				<td><a href="<%=request.getContextPath()%>/user">View your
 						profile</a></td>
-			</tr>
-			<tr>
-				<td><a href="<%=request.getContextPath()%>/logout">Logout</a></td>
 			</tr>
 		</table>
 	</div>

@@ -5,11 +5,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.c360.auditcloud.model.Login;
-import com.c360.auditcloud.model.User;
 
 /**
  * @author MD. Shadab Mashuk

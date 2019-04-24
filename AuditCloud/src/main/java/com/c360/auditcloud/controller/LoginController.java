@@ -1,6 +1,5 @@
 package com.c360.auditcloud.controller;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -45,7 +44,7 @@ public class LoginController {
 		} else {
 
 			ModelAndView mav;
-			if (session.getAttribute("roleid") == "1") {
+			if (Integer.parseInt(session.getAttribute("roleid").toString()) == 1) {
 				mav = new ModelAndView("welcomeclient");
 			} else {
 				mav = new ModelAndView("welcomeadmin");

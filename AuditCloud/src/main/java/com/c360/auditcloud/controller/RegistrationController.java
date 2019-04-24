@@ -71,7 +71,7 @@ public class RegistrationController {
 		} else {
 			System.out.println("2");
 			ModelAndView mav;
-			if (session.getAttribute("roleid") == "1") {
+			if (Integer.parseInt(session.getAttribute("roleid").toString()) == 1) {
 				mav = new ModelAndView("welcomeclient");
 			} else {
 				mav = new ModelAndView("welcomeadmin");
@@ -83,24 +83,26 @@ public class RegistrationController {
 	@RequestMapping(value = "/registerProcess", method = RequestMethod.POST)
 	public ModelAndView addUser(HttpServletRequest request, HttpServletResponse response,
 			@ModelAttribute("user") User user) throws NoSuchAlgorithmException {
-
-		/* Password Encryption */
+		
+		ModelAndView mav = null;
 		byte[] salt = getSalt(); // get salt for added security
 		encryptedpassword = get_SHA_512_SecurePassword(user.getPassword(), salt); // add salt to encryption
-		// convert salt from byte array to string to store in database
 		String convertedSalt = Base64.getEncoder().encodeToString(salt);
 		user.setReset_hash(convertedSalt);
 		user.setPassword_hash(encryptedpassword);
-		/* Ends */
 		Date created_on = new Date();
 		user.setCreated_on(created_on.toString());
-		// System.out.println(user.getPassword_hash());
-		// System.out.println(user.getReset_hash());
 		userService.register(user);
+		System.out.println("Registration controller " +user.getRole_id());
+		String welcome = null;
 		if (user.getRole_id() == 1) {
-			return new ModelAndView("welcomeclient", "firstname", user.getFirstname());
+			welcome  = "welcomeclient";
 		} else {
-			return new ModelAndView("welcomeadmin", "firstname", user.getFirstname());
+			welcome = "welcomeadmin";
 		}
+		mav = new ModelAndView(welcome);
+		mav.addObject("firstname", user.getFirstname());
+		mav.addObject("email", user.getEmail());
+		return mav;
 	}
 }
