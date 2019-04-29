@@ -83,7 +83,12 @@ public class LoginController {
 			session.setAttribute("roleid", Integer.parseInt(user.getRole_id()));
 			if (Integer.parseInt(user.getRole_id()) == 1) {
 				welcome = "welcomeclient";
-			} else {
+			}else if (Integer.parseInt(user.getRole_id()) == 2) {
+				welcome = "welcomeclient2";
+			}else if (Integer.parseInt(user.getRole_id()) == 3) {
+				welcome = "welcomeclient3";
+			}
+			  else {
 				welcome = "welcomeadmin";
 			}
 			mav = new ModelAndView(welcome);

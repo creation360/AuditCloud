@@ -1,5 +1,6 @@
 com\c360\auditcloud\controller\RegistrationController.class
 com\c360\auditcloud\dao\UserDaoImpl.class
+com\c360\auditcloud\filter\SessionFilter.class
 com\c360\auditcloud\controller\UserController.class
 com\c360\auditcloud\model\User.class
 com\c360\auditcloud\dao\UserDao.class

@@ -73,7 +73,11 @@ public class RegistrationController {
 			ModelAndView mav;
 			if (Integer.parseInt(session.getAttribute("roleid").toString()) == 1) {
 				mav = new ModelAndView("welcomeclient");
-			} else {
+			} else if (Integer.parseInt(session.getAttribute("roleid").toString()) == 2) {
+				mav = new ModelAndView("welcomeclient2");
+			}else if (Integer.parseInt(session.getAttribute("roleid").toString()) == 3) {
+				mav = new ModelAndView("welcomeclient3");
+			}else {
 				mav = new ModelAndView("welcomeadmin");
 			}
 			return mav;
@@ -97,7 +101,11 @@ public class RegistrationController {
 		String welcome = null;
 		if (Integer.parseInt(user.getRole_id()) == 1) {
 			welcome  = "welcomeclient";
-		} else {
+		} else if (Integer.parseInt(user.getRole_id()) == 2) {
+			welcome = "welcomeclient2";
+		}else if (Integer.parseInt(user.getRole_id()) == 3) {
+			welcome = "welcomeclient3";
+		}else {
 			welcome = "welcomeadmin";
 		}
 		mav = new ModelAndView(welcome);
